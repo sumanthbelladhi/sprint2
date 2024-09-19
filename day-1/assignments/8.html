@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Timer Component</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        function TimerComponent() { const [count, setCount] = React.useState(0); React.useEffect(() => { const timer = setInterval(() => { setCount((prevCount) => prevCount + 1); }, 1000); return () => { console.log('Component unmounted: Timer cleared'); clearInterval(timer);
+        }; }, []); return (
+        <div>
+            <h1>Timer: {count} seconds</h1>
+        </div>
+        ); } ReactDOM.render(
+
+        <TimerComponent />, document.getElementById('root'));
+    </script>
+</body>
+
+</html>
